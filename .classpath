@@ -12,5 +12,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/javafx"/>
 	<classpathentry kind="lib" path="/Users/matteomantione/Downloads/javafx-sdk-18.0.2/lib/javafx.controls.jar"/>
 	<classpathentry kind="lib" path="/2018-09-12/lib/mysql-connector-java-5.1.46-bin.jar"/>
+	<classpathentry kind="lib" path="/Users/matteomantione/Downloads/javafx-sdk-18.0.2/lib/javafx.fxml.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

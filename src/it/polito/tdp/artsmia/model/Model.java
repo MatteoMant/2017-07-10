@@ -76,6 +76,7 @@ public class Model {
 			}
 		}
 		
+		// provo ad aggiungere i vertici adiacenti all'ultimo vertice inserito in parziale
 		for (ArtObject o : Graphs.neighborListOf(this.grafo, ultimo)) {
 			if (!parziale.contains(o) && o.getClassification().equals(this.classificationCorrente)) {
 				parziale.add(o);
@@ -86,7 +87,7 @@ public class Model {
 		
 	}
 	
-	private int calcolaPesoCammino(List<ArtObject> cammino) {
+	public int calcolaPesoCammino(List<ArtObject> cammino) {
 		int peso = 0;
 		
 		ArtObject partenza = cammino.get(0);

@@ -5,6 +5,8 @@
 package it.polito.tdp.artsmia;
 
 import java.net.URL;
+import java.util.Collections;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import it.polito.tdp.artsmia.model.ArtObject;
@@ -66,7 +68,7 @@ public class ArtsmiaController {
 			}
 			
 			int dimensione = this.model.getSizeComponenteConnessa(o);
-			txtResult.setText("La componente connessa all'oggetto " + o + " ha una dimensione pari a " + dimensione);
+			txtResult.setText("La componente connessa all'oggetto " + o.getId() + " ha una dimensione pari a " + dimensione);
 			
 			for (int i = 2; i <= dimensione; i++) {
 				boxLUN.getItems().add(i);
@@ -89,6 +91,28 @@ public class ArtsmiaController {
 			return;
 		}
 		
+		try {
+			int objectId = Integer.parseInt(txtObjectId.getText());
+			
+			ArtObject o = this.model.getArtObject(objectId);
+			
+			if (o == null) {
+				txtResult.setText("Nessun oggetto associato a tale identificativo!\n");
+				return;
+			}
+			
+			List<ArtObject> cammino = this.model.calcolaCammino(lunghezza, o);
+			Collections.sort(cammino);
+			txtResult.appendText("Il cammino di peso '" + this.model.calcolaPesoCammino(cammino) + "' è: \n");
+			for (ArtObject obj : cammino) {
+				txtResult.appendText(obj + "\n");
+			}
+			
+		} catch (NumberFormatException e) {
+			txtResult.setText("Per favore inserire un identificativo valido!\n");
+			return;
+		}
+	
 		
 	}
 
