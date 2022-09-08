@@ -65,12 +65,12 @@ public class ArtsmiaController {
 				return;
 			}
 			
-//			int dimensione = this.model.getSizeComponenteConnessa(o);
-//			txtResult.appendText("La componente connessa all'oggetto " + o + " ha una dimensione pari a " + dimensione);
-//			
-//			for (int i = 2; i <= dimensione; i++) {
-//				boxLUN.getItems().add(i);
-//			}
+			int dimensione = this.model.getSizeComponenteConnessa(o);
+			txtResult.setText("La componente connessa all'oggetto " + o + " ha una dimensione pari a " + dimensione);
+			
+			for (int i = 2; i <= dimensione; i++) {
+				boxLUN.getItems().add(i);
+			}
 			
 			
 		} catch (NumberFormatException e) {
@@ -85,7 +85,7 @@ public class ArtsmiaController {
 		
 		Integer lunghezza = boxLUN.getValue();
 		if (lunghezza == null) {
-			txtResult.appendText("Per favore selezionare la lunghezza dalla tendina!\n");
+			txtResult.setText("Per favore selezionare la lunghezza dalla tendina!\n");
 			return;
 		}
 		
